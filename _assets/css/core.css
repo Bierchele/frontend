@@ -1,0 +1,356 @@
+@import url('menu.css');
+@import url('content.css');
+@import url('footer.css');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,400i,500,600,700&display=swap');
+
+html, body {
+  font-size: 100%;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.35;
+  width: 100%;
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: #f3f4fe;
+  color: #746b9e;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+body.violet {
+  background: rgb(66, 47, 139);
+  background: -moz-linear-gradient(top, rgba(66, 47, 139, 1) 0%, rgba(78, 47, 155, 1) 27%, rgba(98, 56, 164, 1) 100%);
+  background: -webkit-linear-gradient(top, rgba(66, 47, 139, 1) 0%, rgba(78, 47, 155, 1) 27%, rgba(98, 56, 164, 1) 100%);
+  background: linear-gradient(to bottom, rgba(66, 47, 139, 1) 0%, rgba(78, 47, 155, 1) 27%, rgba(98, 56, 164, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#422f8b', endColorstr='#6238a4', GradientType=0);
+}
+
+.body-canvas {
+  -webkit-backdrop-filter: blur(0px);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 997;
+  -webkit-transition: all 0.45s;
+  transition: all 0.45s;
+  display: none;
+}
+
+.body-canvas.visible {
+  display: block;
+  -webkit-backdrop-filter: blur(1px);
+  background: rgb(66, 47, 139);
+  opacity: 0.0;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.strong,
+.bold {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+}
+
+.fixed-width {
+  display: inline-block;
+  min-width: 110px;
+}
+
+.fixed-width-large {
+  display: inline-block;
+  width: 160px;
+}
+
+.main-headline {
+  text-transform: uppercase;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 300;
+  letter-spacing: 4.5px;
+  display: block;
+  margin-bottom: 40px;
+  font-size: 40px;
+}
+
+.main-headline.small {
+  font-size: 30px;
+}
+
+.strong.italic,
+.bold.italic {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.thin {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 300;
+}
+
+.light {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 300;
+}
+
+a:not(.button):not(.custom-btn):not(.item),
+a:not(.button):not(.custom-btn):not(.item):active,
+a:not(.button):not(.custom-btn):not(.item):visited {
+  text-decoration: none !important;
+  color: #746b9e;
+  border-bottom: 1px solid rgba(117, 108, 158, 0.25);
+  padding-bottom: 2px;
+  -webkit-transition: color 0.35s, background 0.35s;
+  transition: color 0.35s, background 0.35s;
+  animation-timing-function: ease;
+}
+
+a:not(.button):not(.custom-btn):not(.item):hover {
+  color: #20173e;
+  border-bottom: 1px solid rgba(117, 108, 158, 0.25);
+  padding-bottom: 2px;
+}
+
+h1 {
+  color: #433488;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 300;
+  font-size: 37px;
+  letter-spacing: 2.5px;
+  display: block;
+}
+
+h2 {
+  color: #433488;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: 2px;
+  padding-top: 6px;
+  display: block;
+  text-transform: uppercase;
+}
+
+h2.icon {
+  padding-left: 40px;
+  background: url("../img/icon_lock_closed.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 28px;
+}
+
+h3 {
+  color: #46318c;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 1.6px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  display: inline;
+}
+
+h4 {
+  color: #9296AB;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 1.8px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  display: inline;
+}
+
+h1.padded {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.centered {
+  text-align: center;
+}
+
+.left-aligned {
+  text-align: left;
+}
+
+.right-aligned {
+  text-align: right;
+}
+
+.right-floated {
+  float: right;
+}
+
+hr {
+  border-top: 1px solid rgba(0, 0, 0, 0.10);
+  border-bottom: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.hyphen {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.label.new {
+  display: inline-block;
+  padding: 4px 6px 2px 7px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+  font-size: 10px;
+}
+
+.label.new.violett {
+  background: #433488;
+  color: #ffffff;
+}
+
+.label.new.yellow {
+  background: #f8ad18;
+  color: #ffffff;
+}
+
+.label.new.bright {
+  background: #fff;
+  color: #433488;
+}
+
+.section-top {
+  margin-top: 25px;
+}
+
+.section-top-middle {
+  margin-top: 20px;
+}
+
+.section-top-small {
+  margin-top: 10px;
+}
+
+.section-block {
+  display: block;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.inline {
+  display: inline;
+}
+
+.inline-block {
+  display: inline-block !important;
+}
+
+.block {
+  display: block !important;
+}
+
+.subtitle {
+  font-size: 12px;
+}
+
+.small {
+  font-size: 12px;
+}
+
+.centered {
+  text-align: center !important;
+}
+
+.element_hidden {
+  visibility: hidden !important;
+  display: none !important;
+}
+
+.mobile_only {
+  display: none;
+}
+
+.desktop_only {
+  display: block;
+}
+
+@media screen and (max-width: 1280px) {}
+
+@media screen and (max-width: 991px) {
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  h3 {
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    line-height: 1.4;
+  }
+
+  h1.padded {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .mobile-hyphen {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+  }
+
+  .mobile_hide {
+    display: none;
+  }
+
+  .mobile_only {
+    display: block;
+  }
+
+  .desktop_only {
+    display: none;
+    content: none;
+    width: 0px;
+    height: 0px;
+    visibility: hidden;
+  }
+}
