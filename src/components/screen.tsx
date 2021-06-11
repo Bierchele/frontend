@@ -7,8 +7,8 @@ interface Barcode {
   errorMsg: string | undefined;
 }
 const screenStyle = {
-  height: "370px",
-  width: "340px",
+  height: "340px",
+  width: "350px",
   position: "relative",
 } as CSSProperties;
 
@@ -16,7 +16,7 @@ const screenStyle = {
 
 const ScannerScreen = (props: Barcode) => { 
   return (
-    <div style={screenStyle} className=" overflow-auto border ui">
+    <div style={screenStyle} className="overflow-auto  m-3 mt-1" >
       {props.errorMsg ? (
         <div className="text-center ui m-3 p-2 rounded">
           {props.errorMsg}

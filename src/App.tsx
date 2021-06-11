@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { CSSProperties, useState } from "react";
 import ScannerScreen from "./components/screen";
 import Add from "./components/add";
 import Print from "./components/print";
@@ -6,7 +6,7 @@ import InputField from "./components/inputField";
 import "bootstrap/dist/css/bootstrap.css";
 import { HeaderLogo, Headline, ToastContainer } from "@ticketio/ui-react";
 import "@ticketio/ui-react/build/styles.min.css";
-
+import "./_assets/css/core.css";
 
 interface Barcode {
   ean: string;
@@ -22,11 +22,17 @@ interface Input {
 }
 
 const appStyle = {
-  width: "360px",
+  width: "380px",
   height: "auto",
   margin: "20px 0px 20px 50%",
   transform: "translateX(-50%)",
 } as React.CSSProperties;
+
+const divStyle = {
+  width: "100px",
+  height: '35px',
+  marginLeft: "-25px",
+} as CSSProperties;
 
 const App = () => {
   const [barcodes, setBarcodes] = useState<Barcode[]>();
@@ -40,8 +46,10 @@ const App = () => {
   return (
     <>
       <ToastContainer position="bottom-right" newestOnTop={true} />
-      <div style={appStyle} className="border rounded shadow ui form light  top-bar-logo ">
-        <Headline title="haze" />
+      <div style={appStyle} className="border rounded shadow ui form">
+      <div style={divStyle}>
+        <HeaderLogo />
+      </div>
         <ScannerScreen barcodes={barcodes} errorMsg={errorMsg} />
         <div className="w-100 d-flex-column ">
           <div className="w-100  text-center">
