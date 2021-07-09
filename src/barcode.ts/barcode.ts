@@ -1,6 +1,6 @@
 import { Length } from "class-validator";
 
-export class PostBarcode {
+export class BarcodeRequirements {
   @Length(1, 10)
   ean: string | undefined = "";
   @Length(1, 20)

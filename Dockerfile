@@ -1,13 +1,12 @@
-FROM node:14-alpine
+FROM node:16-alpine
 
 WORKDIR /app
 
 ARG NPM_TOKEN  
-COPY .npmrc ./
-COPY package.*json ./
-RUN npm install
-RUN rm -f .npmrc
 
+COPY .npmrc .npmrc
+COPY package.*json ./
+RUN npm i
 COPY . .
 
 EXPOSE 3000

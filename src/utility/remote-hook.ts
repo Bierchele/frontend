@@ -1,3 +1,5 @@
+import { toastService } from "@ticketio/ui-react";
+
 interface Barcode {
   barcode: string;
   firstName: string;
@@ -14,16 +16,19 @@ interface RequestProps {
 const fetchIt = async ({ url, init }: RequestProps) => {
   try {
     const res = await fetch(url, init);
-    if (res.status === 201 || res.status === 200) {
+    if (res.ok) {
       const data: Barcode = await res.json();
       return data;
     }
-    if (res.status === 400) {
+    if(!res.ok) {
       console.error(`Error ${res.status} ${res.statusText}`);
-      return await res.json();
+      const data = await res.json()
+      toastService.error({header: "Error", content: data.message})
+      return res.statusText
     }
   } catch (error) {
-    console.error(`Error pups ${error}`);
+    console.error(`${error}`)
+    toastService.error({header: "Error", content: `${error}`})
     return error;
   }
 };
