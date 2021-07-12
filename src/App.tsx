@@ -1,7 +1,7 @@
 import React, { CSSProperties, useState } from "react";
 import { ScannerScreen } from "./components/screen";
 import { AddBarcode } from "./components/addBarcode";
-import Print from "./components/print";
+import {PrintBarcodes} from "./components/printBarcodes";
 import InputField from "./components/inputForm";
 import "bootstrap/dist/css/bootstrap.css";
 import { HeaderLogo, ToastContainer } from "@ticketio/ui-react";
@@ -71,7 +71,7 @@ const App = () => {
               />
             </div>
             <div className=" w-50 h-75 text-center m-3">
-              <Print setBarcodes={setBarcodes} setErrorMsg={setErrorMsg} />
+              <PrintBarcodes setBarcodes={setBarcodes} setErrorMsg={setErrorMsg} />
             </div>
           </div>
         </div>

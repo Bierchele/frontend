@@ -19,23 +19,14 @@ interface Barcode {
 }
 
 const AddBarcode = (props: Barcode) => {
-
-
-  const showToastError = () => {
-    toastService.error({
-      header: "Error",
-      content: "The fields can not be empty!",
-    });
-  };
-
-  const checkIfBarcodeMatches = () => {
+  const countValidationErros = (): number => {
+    let errorLength = 0;
     let neededStats = new BarcodeRequirements();
     Object.assign(neededStats, props.input);
     validate(neededStats).then((errors) => {
-      if (errors.length > 0) {
-        return 
-      }
+      errorLength = errors.length;
     });
+    return errorLength;
   };
 
   const sendBarcode = async () => {
@@ -47,21 +38,30 @@ const AddBarcode = (props: Barcode) => {
       },
       body: JSON.stringify(props.input),
     };
-
-    /*
-      else {
-        const res = await fetchIt({ url: URL + "/entry", init: init });
-        if (res.message) {
-          props.setErrorMsg("");
-          props.setInput({ ean: "", firstName: "", lastName: "" });
-          toastService.success({ header: "Succsess", content: res.message });
-        }
-      }
-      */
+    const res = await fetchIt({ url: URL + "/entry", init: init });
+    showSuccess(res);
   };
-  props.setInput({ ean: "", firstName: "", lastName: "" });
+
+  const showToastError = () => {
+    toastService.error({
+      header: "Error",
+      content: "The fields can not be empty!",
+    });
+  };
+
+  const showSuccess = (res: any) => {
+    if (res.message) {
+      toastService.success({ header: "Succsess", content: res.message });
+      props.setErrorMsg("");
+      props.setInput({ ean: "", firstName: "", lastName: "" });
+    }
+  };
+
   return (
-    <div onClick={sendBarcode} className="ui button primary small m-2 shadow">
+    <div
+      onClick={countValidationErros() < 1 ? sendBarcode : showToastError}
+      className="ui button primary small m-2 shadow"
+    >
       A D D
     </div>
   );

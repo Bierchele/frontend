@@ -15,7 +15,9 @@ interface Barcodes {
   setErrorMsg: (msg: string) => void;
 }
 
-const Print = (props: Barcodes) => {
+const PrintBarcodes = (props: Barcodes) => {
+
+  
   const fetchData = async () => {
     const res = await fetchIt({
       url: URL + "/entries",
@@ -34,4 +36,4 @@ const Print = (props: Barcodes) => {
   );
 };
 
-export default Print;
+export  {PrintBarcodes};

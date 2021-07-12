@@ -42,7 +42,7 @@ const ListItem = (props: Barcode) => {
   const OPEN_HEIGHT = "155px";
   const COLLAPSED_HEIGHT = "55px";
   const DIRECT_ANIMATION = [0, 0.0];
-  const SLOW_DELAY_ANIMATION = [0.3, 0.5];
+  const SLOW_DELAY_ANIMATION = [0.1, 0.2];
 
   const leftPaddingLine = useSpring({
     config: { friction: 90, tension: 220, damping: 0.5 },
@@ -74,13 +74,7 @@ const ListItem = (props: Barcode) => {
       marginBottom: "20px",
       marginLeft: "20px",
     },
-    leave: {
-      x: 800,
-      y: 0,
-      marginTop: "-55px",
-      marginBottom: "-20px",
-      marginLeft: "20px",
-    },
+   
     config: { friction: 50, tension: 200, damping: 0 },
     trail: 20,
     ref: transitionRef,
